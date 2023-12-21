@@ -1,0 +1,734 @@
+@charset "UTF-8";
+/* custom css reset */
+/* Box sizing rules */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: transparent;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ul,
+ol[role=list] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set core root defaults */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+  overflow-x: hidden;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@font-face {
+  font-family: "Ubuntu", sans-serif;
+  src: url(assets/fonts/Ubuntu-Bold.ttf) format(truetype);
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ubuntu", sans-serif;
+  src: url(assets/fonts/Ubuntu-Medium.ttf) format(truetype);
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ubuntu", sans-serif;
+  src: url(assets/fonts/Ubuntu-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: "Ubuntu", sans-serif;
+}
+
+.side-bar {
+  background-image: url("assets/images/bg-sidebar-mobile.svg");
+}
+
+#num-1,
+#num-2, #num-3, #num-4 {
+  width: 2.0625rem;
+  height: 2.0625rem;
+  border-radius: 50%;
+  border: 1px solid hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 100%);
+}
+#num-1:hover, #num-1 :focus-visible, #num-1 :focus,
+#num-2:hover,
+#num-2 :focus-visible,
+#num-2 :focus, #num-3:hover, #num-3 :focus-visible, #num-3 :focus, #num-4:hover, #num-4 :focus-visible, #num-4 :focus {
+  border: none;
+  color: hsl(213, 96%, 18%);
+  background-color: #BEE2FD;
+}
+
+.side-bar {
+  width: 100%;
+  height: clamp(10.75rem, 11vw, 11rem);
+}
+
+#gobackbtn, #nextstepbtn {
+  font-size: clamp(0.875rem, 0.9vw, 0.9rem);
+  font-weight: 450;
+}
+@media (min-width: 1100px) {
+  #gobackbtn, #nextstepbtn {
+    font-size: clamp(1.05rem, 1.1vw, 1.15rem);
+    text-align: center;
+    height: 3rem;
+  }
+}
+
+.header-text {
+  font-size: clamp(1.5rem, 1.55vw, 1.6rem);
+  font-weight: 700;
+  line-height: auto;
+}
+
+.para {
+  font-size: clamp(0.95rem, 1vw, 1.05rem);
+}
+
+.form-control {
+  display: flex;
+  row-gap: 0.04rem;
+}
+
+label {
+  font-size: clamp(0.75rem, 0.78vw, 0.8rem);
+  color: hsl(213, 96%, 18%);
+  font-weight: 400;
+  line-height: auto;
+}
+
+#name,
+#emailAddress,
+#phoneNumber {
+  font-size: clamp(0.9375rem, 0.95vw, 1rem);
+  border: 0.5px solid hsl(231, 11%, 63%);
+}
+#name:hover, #name :active, #name :focus, #name :focus-visible,
+#emailAddress:hover,
+#emailAddress :active,
+#emailAddress :focus,
+#emailAddress :focus-visible,
+#phoneNumber:hover,
+#phoneNumber :active,
+#phoneNumber :focus,
+#phoneNumber :focus-visible {
+  border-color: hsl(243, 100%, 62%);
+}
+
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+@keyframes slideInStepContainer {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideOutStepContainer {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+}
+.example {
+  display: grid;
+  transition: all 0.5s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background: linear-gradient(to bottom, white, black);
+}
+
+@media (max-height: 500px) {
+  body {
+    overflow: auto;
+    padding-bottom: clamp(5rem, 6vw, 7rem);
+  }
+  .steps-container {
+    display: none;
+  }
+  #next-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(213, 96%, 18%);
+    position: fixed;
+    bottom: 30%;
+    right: 2%;
+  }
+}
+@media (min-height: 500px) {
+  #next-btn {
+    display: none;
+  }
+}
+.plan-header-style {
+  font-size: clamp(0.99rem, 1.05vw, 1.1rem);
+  font-weight: 500;
+  color: hsl(213, 96%, 18%);
+  line-height: auto;
+  background-color: transparent;
+}
+@media (min-width: 1100px) {
+  .plan-header-style {
+    font-size: clamp(1.05rem, 1.1vw, 1.15rem);
+  }
+}
+
+#arcade-price,
+#advanced-price,
+#pro-price {
+  font-size: clamp(0.875rem, 0.9vw, 0.9rem);
+  font-weight: 400;
+  line-height: 1.25rem;
+  color: hsl(231, 11%, 63%);
+}
+
+.yearly-months-txt {
+  font-size: clamp(0.75rem, 0.8vw, 0.85rem);
+  color: hsl(213, 96%, 18%);
+  line-height: 20px;
+}
+
+#total-price {
+  font-size: clamp(1.1rem, 1.15vw, 1.2rem);
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.sum-cost,
+.cost-per {
+  font-size: clamp(0.875rem, 0.9vw, 0.9rem);
+  font-weight: 400;
+  line-height: 1.25rem;
+  color: hsl(231, 11%, 63%);
+}
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.example {
+  display: grid;
+  transition: all 0.5s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background: linear-gradient(to bottom, white, black);
+}
+
+/* Apply the animation to an element with a class */
+.slide-in-animation {
+  animation: slideInFromLeft 1.5s ease-in-out;
+}
+
+.image-container-arcade,
+.image-container-advanced,
+.image-container-pro,
+.online-service-container,
+.larger-storage-container,
+.profile-container {
+  border: 1px solid hsl(231, 11%, 63%);
+  border-radius: 0.5rem;
+}
+.image-container-arcade:hover, .image-container-arcade :active, .image-container-arcade :focus, .image-container-arcade :focus-visible,
+.image-container-advanced:hover,
+.image-container-advanced :active,
+.image-container-advanced :focus,
+.image-container-advanced :focus-visible,
+.image-container-pro:hover,
+.image-container-pro :active,
+.image-container-pro :focus,
+.image-container-pro :focus-visible,
+.online-service-container:hover,
+.online-service-container :active,
+.online-service-container :focus,
+.online-service-container :focus-visible,
+.larger-storage-container:hover,
+.larger-storage-container :active,
+.larger-storage-container :focus,
+.larger-storage-container :focus-visible,
+.profile-container:hover,
+.profile-container :active,
+.profile-container :focus,
+.profile-container :focus-visible {
+  border-color: hsl(243, 100%, 62%);
+}
+.image-container-arcade:active,
+.image-container-advanced:active,
+.image-container-pro:active,
+.online-service-container:active,
+.larger-storage-container:active,
+.profile-container:active {
+  background-color: hsl(231, 100%, 99%) v;
+}
+
+#add-ons-container,
+#select-plan,
+#personal-info,
+#finishing-up-container,
+#thanks-container {
+  width: 89%;
+}
+
+.services-para {
+  font-size: clamp(0.75rem, 0.8vw, 0.85rem);
+  font-size: clamp(0.875rem, 0.9vw, 0.9rem);
+  font-weight: 400;
+  line-height: 1.25rem;
+  color: hsl(231, 11%, 63%);
+  font-size: 0.75rem;
+}
+@media (min-width: 1100px) {
+  .services-para {
+    font-size: clamp(0.875rem, 0.9vw, 0.9rem);
+  }
+}
+
+.services-type {
+  font-size: clamp(0.875rem, 0.9vw, 0.9rem);
+  color: hsl(213, 96%, 18%);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+@media (min-width: 1100px) {
+  .services-type {
+    font-size: clamp(1.05rem, 1.1vw, 1.15rem);
+  }
+}
+
+#price-online-serv,
+#price-larger-str,
+#price-profile-customisable {
+  font-size: clamp(0.75rem, 0.8vw, 0.85rem);
+  color: hsl(243, 100%, 62%);
+}
+@media (min-width: 1100px) {
+  #price-online-serv,
+  #price-larger-str,
+  #price-profile-customisable {
+    font-size: clamp(0.875rem, 0.9vw, 0.9rem);
+  }
+}
+
+input#online-serv,
+input#larger-storage,
+input#profile-check {
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.2rem;
+  border: 1px solid hsl(231, 11%, 63%);
+  cursor: pointer;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+input#online-serv:hover,
+input#larger-storage:hover,
+input#profile-check:hover {
+  border-color: hsl(243, 100%, 62%);
+}
+
+/* Define styles for the checked state of the checkboxes */
+input#online-serv::after,
+input#larger-storage::after,
+input#profile-check::after {
+  content: "✓";
+  color: white;
+  font-family: "Font Awesome 5 free";
+  font-weight: 500;
+  font-size: clamp(0.8rem, 0.85vw, 0.9rem);
+  background: transparent;
+  border: none;
+}
+
+input#online-serv:checked,
+input#larger-storage:checked,
+input#profile-check:checked {
+  transition: 0.5s;
+  background-color: hsl(243, 100%, 62%);
+  border: none;
+}
+
+.summary-cost-container {
+  width: 95%;
+  margin: 1rem auto 1rem auto;
+  border-radius: 0.5rem;
+}
+
+.thin-bottom-line {
+  height: 1px;
+  background-color: hsl(231, 11%, 63%);
+  margin: 0.6rem auto 0.6rem auto;
+}
+
+#change-plan {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  color: hsl(231, 11%, 63%); /* Default text color */
+}
+#change-plan:hover {
+  color: hsl(243, 100%, 62%);
+}
+#change-plan::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 1.5px; /* Adjust the value to control the space between text and underline */
+  width: 100%;
+  height: 1px; /* Adjust the height of the underline */
+  background-color: hsl(231, 11%, 63%); /* Default underline color */
+  transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+#change-plan:hover::after {
+  background-color: hsl(243, 100%, 62%);
+}
+
+.thanks-icon {
+  margin: 0 auto;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.thanks-text {
+  font-size: clamp(1.5rem, 1.6vw, 1.6rem);
+  margin: 0.7rem auto 0.7rem auto;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.name-validation {
+  font-size: clamp(0.75rem, 0.8vw, 0.85rem);
+  display: none;
+}
+
+#container {
+  display: grid;
+  place-items: center;
+}
+
+#planoptionCheckBox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 2.375rem;
+  height: 1.25rem;
+  border-radius: 10rem;
+  background-color: hsl(213, 96%, 18%);
+  cursor: pointer;
+  position: relative;
+  border: none;
+  transition: left 0.5s ease-in-out;
+}
+
+#planoptionCheckBox::before {
+  content: "";
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  transition: left 0.5s ease-in-out;
+}
+
+#planoptionCheckBox:checked::before {
+  left: 55%;
+  transition: 0.5s;
+}
+
+#planoptionCheckBox:checked::after {
+  transition: inherit;
+}
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.example {
+  display: grid;
+  transition: all 0.5s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background: linear-gradient(to bottom, white, black);
+}
+
+.fee-container {
+  display: flex;
+  flex-direction: row;
+  row-gap: 1rem;
+  justify-content: space-between;
+}
+.fee-container > .fee-container-header {
+  font-size: clamp(0.875rem, 0.9vw, 0.9rem);
+  font-weight: 400;
+  line-height: 1.25rem;
+  color: hsl(231, 11%, 63%);
+  font-weight: 400;
+}
+.fee-container > .fee-container-price {
+  font-size: clamp(0.75rem, 0.8vw, 0.85rem);
+  color: hsl(213, 96%, 18%);
+  line-height: 20px;
+  font-size: clamp(0.875rem, 0.9vw, 0.9rem);
+}
+
+@media (min-width: 1100px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-top: 6rem;
+  }
+  .main-form-container {
+    width: clamp(58.75rem, 59vw, 59rem);
+    height: clamp(37.5rem, 38vw, 38rem);
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    box-shadow: 0px 5px 40px rgba(23, 45, 32, 0.2);
+    border-radius: 1rem;
+    padding: 1rem 2.5rem 1rem 1rem;
+  }
+  .main-form-container > .side-bar {
+    width: 30%;
+    height: 100%;
+    background-image: url("assets/images/bg-sidebar-desktop.svg");
+    border-radius: 0.5rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+  }
+  .main-form-container > .side-bar > .overall-steps-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding-left: 2rem;
+    padding-top: 1rem;
+  }
+  .main-form-container > .side-bar > .overall-steps-container > .num-1-step, .main-form-container > .side-bar > .overall-steps-container .num-2-step,
+  .main-form-container > .side-bar > .overall-steps-container .num-3-step, .main-form-container > .side-bar > .overall-steps-container .num-4-step {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
+  }
+  .main-form-container > .side-bar > .overall-steps-container > .num-1-step > .step-deatails > .step-num, .main-form-container > .side-bar > .overall-steps-container .num-2-step > .step-deatails > .step-num,
+  .main-form-container > .side-bar > .overall-steps-container .num-3-step > .step-deatails > .step-num, .main-form-container > .side-bar > .overall-steps-container .num-4-step > .step-deatails > .step-num {
+    display: block;
+    font-weight: 400;
+    font-size: clamp(0.75rem, 0.8vw, 0.85rem);
+    line-height: auto;
+    color: hsl(206, 94%, 87%);
+    text-transform: uppercase;
+  }
+  .main-form-container > .side-bar > .overall-steps-container > .num-1-step > .step-deatails > .step-info, .main-form-container > .side-bar > .overall-steps-container .num-2-step > .step-deatails > .step-info,
+  .main-form-container > .side-bar > .overall-steps-container .num-3-step > .step-deatails > .step-info, .main-form-container > .side-bar > .overall-steps-container .num-4-step > .step-deatails > .step-info {
+    display: block;
+    font-weight: 700;
+    font-size: clamp(0.875rem, 0.9vw, 0.9rem);
+    color: white;
+    letter-spacing: 1px;
+    line-height: auto;
+    text-transform: uppercase;
+  }
+  .main-form-container > .main-form-container-actual-form {
+    width: 55%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0 auto;
+  }
+  .main-form-container > .main-form-container-actual-form > #add-ons-container,
+  .main-form-container > .main-form-container-actual-form #select-plan,
+  .main-form-container > .main-form-container-actual-form #personal-info,
+  .main-form-container > .main-form-container-actual-form #finishing-up-container,
+  .main-form-container > .main-form-container-actual-form #thanks-container {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .main-form-container > .main-form-container-actual-form #personal-info {
+    display: flex;
+    flex-direction: column;
+  }
+  .main-form-container > .main-form-container-actual-form #personal-info > form .form-row-group {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem auto 0 auto;
+    row-gap: 1.5rem;
+    height: 100%;
+  }
+  .main-form-container > .main-form-container-actual-form > .header-with-para {
+    display: flex;
+    flex-direction: row;
+    row-gap: 1.5rem;
+  }
+  .main-form-container > .main-form-container-actual-form > .steps-container {
+    position: absolute;
+    bottom: 0;
+  }
+  .main-form-container > .main-form-container-actual-form > #select-plan {
+    display: flex;
+    row-gap: 2rem;
+  }
+  .main-form-container > .main-form-container-actual-form > #select-plan > .btn-containers-plan {
+    display: flex;
+    flex-direction: row;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
+    margin: 3rem 0 3rem 0;
+  }
+  .form-control {
+    display: flex;
+    row-gap: 0.4rem;
+  }
+  label {
+    font-size: clamp(0.875rem, 0.9vw, 0.9rem);
+  }
+  #name, #emailAddress,
+  #phoneNumber {
+    height: 3rem;
+    width: 100%;
+    font-size: clamp(1.05rem, 1.1vw, 1.15rem);
+  }
+  .image-container-advanced,
+  .image-container-arcade,
+  .image-container-pro {
+    width: 8.625rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+  }
+  .image-container-advanced > img,
+  .image-container-arcade > img,
+  .image-container-pro > img {
+    margin-bottom: 2.2rem;
+  }
+  #add-ons-container > .header-with-para {
+    margin-bottom: 1.8rem;
+  }
+  .picks-container {
+    display: flex;
+    row-gap: 1.3rem;
+  }
+  #plan-mode, #selectedplan {
+    font-size: clamp(1.05rem, 1.1vw, 1.15rem);
+  }
+  #total-price {
+    font-size: clamp(1.05rem, 1.1vw, 1.15rem);
+  }
+  #thanks-container {
+    width: 100%;
+    height: 100%;
+  }
+}/*# sourceMappingURL=styles.css.map */

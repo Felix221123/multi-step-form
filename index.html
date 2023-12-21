@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- desktop icon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- font awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.css" integrity="sha512-tx5+1LWHez1QiaXlAyDwzdBTfDjX07GMapQoFTS74wkcPMsI3So0KYmFe6EHZjI8+eSG0ljBlAQc3PQ5BTaZtQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Jquery framework -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <!-- stylessheet from tailwind css / custom css files -->
+    <link rel="stylesheet" href="public/styles.css">
+    <link rel="stylesheet" href="static/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- site title -->
+    <title>Frontend Mentor | Multi-step form</title>
+  </head>
+
+  <body class="bg-neutral-magnolia">
+
+    <!-- main form contaiiner -->
+    <div class="main-form-container relative">
+
+      <!-- side container -->
+      <div class="side-bar bg-desktopSideBar bg-no-repeat bg-center bg-cover w-full relative top-0" style="background-image: url(assets/images/bg-sidebar-mobile.svg);">
+
+        <!-- matching all forms numbers -->
+        <div class="overall-steps-container flex flex-row gap-x-3.5 items-center justify-center z-50 relative top-4">
+
+          <!-- first number -->
+          <div class="num-1-step">
+            <button id="num-1">1</button>
+            <div class="step-deatails">
+              <p class="step-num hidden">step 1</p>
+              <p class="step-info hidden">your info</p>
+            </div>
+          </div>
+
+          <!-- second number -->
+          <div class="num-2-step">
+            <button id="num-2">2</button>
+            <div class="step-deatails">
+              <p class="step-num hidden">step 2</p>
+              <p class="step-info hidden">select plan</p>
+            </div>
+          </div>
+
+          <!-- third number -->
+          <div class="num-3-step">
+            <button id="num-3">3</button>
+            <div class="step-deatails">
+              <p class="step-num hidden">step 3</p>
+              <p class="step-info hidden">add-ons</p>
+            </div>
+          </div>
+
+          <!-- four number -->
+          <div class="num-4-step">
+            <button id="num-4">4</button>
+            <div class="step-deatails">
+              <p class="step-num hidden">step 4</p>
+              <p class="step-info hidden">add-ons</p>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <!-- main form container -->
+      <div class="main-form-container-actual-form">
+
+        <!-- personal information container -->
+        <div id="personal-info" class="bg-neutral-white absolute top-20 translate-x-1/2 right-1/2 z-60 px-6 py-7 rounded-lg flex flex-col gap-y-5 shadow-stone-600" style="display: block;">
+
+          <!-- headers and paragraph -->
+          <article class="header-with-para flex flex-col gap-y-1">
+            <p class="header-text text-primary-marineBlue">Personal info</p>
+            <p class="para text-neutral-coolGray">Please provide your name, email address, and phone number.</p>
+          </article>
+
+          <!-- form -->
+          <form name="personal-info" method="POST" data-netlify="true" action="">
+            <!-- form row -->
+            <div class="form-row-group flex flex-col gap-y-3">
+              <!-- form row name section -->
+              <div class="form-control flex flex-col">
+                <div class="form-control-validation flex items-center justify-between">
+                  <label for="name">Name</label>
+                  <p class="name-validation text-primary-strawBerryRed">This field is required</p>
+                </div>
+                <input type="text" id="name" placeholder="e.g. Stephen King" class="py-2 pl-3.5 rounded-md text-primary-marineBlue" required>
+              </div>
+
+               <!-- form row email address section -->
+              <div class="form-control flex flex-col gap-y-0.5">
+                <div class="form-control-validation flex items-center justify-between">
+                  <label for="emailAddress">Email Address</label>
+                  <p class="name-validation text-primary-strawBerryRed">This field is required</p>
+                </div>
+                <input type="text" id="emailAddress" class="py-2 pl-3.5 rounded-md text-primary-marineBlue" placeholder="e.g. stephenking@lorem.com" required>
+              </div>
+
+               <!-- form row phone number section -->
+              <div class="form-control flex flex-col gap-y-0.5">
+                <div class="form-control-validation flex items-center justify-between">
+                  <label for="phoneNumber">Phone Number</label>
+                  <p class="name-validation text-primary-strawBerryRed">This field is required</p>
+                </div>
+                <input type="text" id="phoneNumber" class="py-2 pl-3.5 rounded-md text-primary-marineBlue" placeholder="e.g. +1 234 567 890" required>
+              </div>
+
+            </div>
+          </form>
+          
+        </div>
+
+        <!-- select your plan container -->
+        <div id="select-plan" class="bg-neutral-white absolute top-20 translate-x-1/2 right-1/2 z-60 px-6 py-7 rounded-lg flex flex-col gap-y-6 shadow-stone-600" style="display: none;">
+
+          <!-- headers and paragraph -->
+          <article class="header-with-para flex flex-col gap-y-1">
+            <p class="header-text text-primary-marineBlue">Select your plan</p>
+            <p class="para text-neutral-coolGray">You have the option of monthly or yearly billing.</p>
+          </article>
+
+          <!-- form row btn -->
+          <div class="btn-containers-plan flex flex-col gap-y-2">
+
+            <!-- arcade btn container -->
+            <button id="arcade-btn" class="">
+              <div class="image-container-arcade flex flex-row items-start gap-x-4 px-4 py-2">
+                <img src="assets/images/icon-arcade.svg" alt="arcade icon image" class="plan-icon-style">
+                <div class="arcade-text-container text-left">
+                  <p class="plan-header-style" id="arcade">Arcade</p>
+                  <p id="arcade-price" class="priceTag">$9/mo</p>
+                  <p class="yearly-months-txt hidden">2 months free</p>
+                </div>
+              </div>
+            </button>
+
+            <!-- advanced btn container -->
+            <button id="advanced-btn">
+              <div class="image-container-advanced flex flex-row items-start gap-x-4 px-4 py-2">
+                <img src="assets/images/icon-advanced.svg" alt="advanced icon image" class="plan-icon-style">
+                <div class="advanced-text-container text-left">
+                  <p class="plan-header-style" id="advanced">Advanced</p>
+                  <p id="advanced-price" class="priceTag">$12/mo</p>
+                  <p class="yearly-months-txt hidden">2 months free</p>
+                </div>
+              </div>
+            </button>
+
+            <!-- pro btn container -->
+            <button id="pro-btn">
+              <div class="image-container-pro flex flex-row items-start gap-x-4 px-4 py-2">
+                <img src="assets/images/icon-pro.svg" alt="pro icon image" class="plan-icon-style">
+                <div class="pro-text-container text-left">
+                  <p class="plan-header-style" id="pro">Pro</p>
+                  <p id="pro-price" class="priceTag">$15/mo</p>
+                  <p class="yearly-months-txt hidden">2 months free</p>
+                </div>
+              </div>
+            </button>
+
+          </div>
+
+          <!-- container for selecting monthly or yearly -->
+          <div class="plan-options-container items flex items-center justify-center gap-x-4 bg-neutral-alabaster py-2 rounded-md">
+            <p id="monthly-option" class="text-primary-marineBlue">Monthly</p>
+            <div id="container">
+              <input type="checkbox" id="planoptionCheckBox">
+            </div>
+            <p id="yearly-option" class="text-neutral-coolGray">Yearly</p>
+          </div>
+
+        </div>
+
+        <!-- pick add ons container -->
+        <div id="add-ons-container" class="bg-neutral-white absolute top-20 translate-x-1/2 right-1/2 z-60 px-6 py-7 rounded-lg flex flex-col gap-y-6 shadow-stone-600" style="display: none;">
+
+          <!-- headers and paragraph -->
+          <article class="header-with-para">
+            <p class="header-text text-primary-marineBlue">Pick add-ons</p>
+            <p class="para text-neutral-coolGray">Add-ons help enhance your gaming experience.</p>
+          </article>
+
+          <!-- form row picks check-box -->
+          <div class="picks-container flex flex-col gap-y-2">
+
+            <!-- online service container -->
+            <div class="online-service-container flex flex-row items-center justify-between px-4 py-3">
+              <div class="online-services-with-text flex flex-row items-center gap-x-4">
+                <label for="online-serv">
+                  <input type="checkbox" name="online-sevice" id="online-serv" class="onl-check">
+                </label>
+                <div class="services-description">
+                  <p class="services-type">Online service</p>
+                  <p class="services-para">Access to multiplayer games</p>
+                </div>
+              </div>
+              <p id="price-online-serv">+$1/mo</p>
+            </div>
+
+            <!-- larger storage -->
+            <div class="larger-storage-container flex flex-row items-center justify-between px-4 py-3">
+              <div class="larger-storage-with-text flex flex-row items-center gap-x-4">
+                <label for="larger-storage">
+                  <input type="checkbox" name="larger-storage" id="larger-storage" class="larg-check">
+                </label>
+                <div class="services-description">
+                  <p class="services-type">Larger storage</p>
+                  <p class="services-para">Extra 1TB of cloud save</p>
+                </div>
+              </div>
+              <p id="price-larger-str">+$2/mo</p>
+            </div>
+
+            <!-- customisable profile -->
+            <div class="profile-container flex flex-row items-center justify-between px-4 py-3">
+              <div class="customizable-profile-with-text flex flex-row items-center gap-x-4">
+                <label for="profile-check">
+                  <input type="checkbox" name="profile-check" id="profile-check" class="pro-check">
+                </label>
+                <div class="services-description">
+                  <p class="services-type">Customizable profile</p>
+                  <p class="services-para">Custom theme on your profile</p>
+                </div>
+              </div>
+              <p id="price-profile-customisable">+$2/mo</p>
+            </div>
+
+          </div>
+
+
+        </div>
+
+        <!-- finishing up container -->
+        <div id="finishing-up-container" class="bg-neutral-white absolute top-20 translate-x-1/2 right-1/2 z-60 px-6 py-7 rounded-lg flex flex-col gap-y-4 shadow-stone-600" style="display: none;">
+
+          <!-- headers and paragraph -->
+          <article class="header-with-para">
+            <p class="header-text text-primary-marineBlue">Finishing up</p>
+            <p class="para text-neutral-coolGray">Double-check everything looks OK before confirming.</p>
+          </article>
+
+          <!-- total cost container -->
+          <div class="summary-cost-container bg-neutral-alabaster px-4 py-4">
+            <!-- plan cost container -->
+            <div class="cost-container flex items-center justify-between">
+              <div class="plan-cost-container">
+                <div class="pricing-container flex items-center">
+                  <p id="plan-mode" class="font-normal text-primary-marineBlue text-sm">Arcade</p>
+                  <span id="selectedplan" class="font-normal text-primary-marineBlue text-sm"></span>
+                </div>
+                <p id="change-plan" class="text-neutral-coolGray text-sm leading-5">Change</p>
+              </div>
+              <p id="plan-mode-price-display" class="text-primary-marineBlue font-medium">$9/mo</p>
+            </div>
+
+            <hr class="thin-bottom-line">
+
+            <div class="services-fee-container flex flex-col gap-y-2">
+              <!-- js code will be used to add elements here -->
+            </div>
+
+          </div>
+
+          <!-- total cost container -->
+          <div class="total-cost-container flex items-center justify-between px-6">
+            <div class="total-per-YEAR/MON flex items-center flex-row">
+              <p class="sum-cost text-neutral-coolGray">Total</p>
+              <p class="cost-per text-neutral-coolGray"></P>
+            </div>
+            <!-- final price element -->
+            <p id="total-price" class="text-primary-purplishBlue leading-5"></p>
+          </div>
+
+
+        </div>
+
+        <!-- thank you container -->
+        <div id="thanks-container" class="bg-neutral-white absolute top-20 translate-x-1/2 right-1/2 z-60 px-5 py-20 rounded-lg flex flex-col items-center justify-center gap-y-6 shadow-stone-600" style="display: none;">
+          <img src="assets/images/icon-thank-you.svg" alt="thank you icon" class="thanks-icon text-sm text-center">
+          <p class="thanks-text text-primary-marineBlue text-center">Thank you!</p>
+          <p class="thanks-para text-center text-neutral-coolGray font-light">
+            Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, 
+            please feel free to email us at support@loremgaming.com.
+          </p>
+        </div>
+
+        <div id="next-btn">
+          <i class="fa-solid fa-arrow-right text-neutral-white"></i>
+        </div>
+
+        <!-- next step container -->
+        <div class="steps-container w-full fixed bottom-0 bg-neutral-white flex items-center px-3.5 py-3.5 justify-between">
+          
+          <!-- go back btn -->
+          <button id="gobackbtn" class="text-neutral-coolGray" >
+            Go Back
+          </button>
+
+          <!-- next step btn -->
+          <button id="nextstepbtn" class="w-25 h-10 bg-primary-marineBlue text-neutral-white px-4 py-2.5 rounded-md">
+            Next Step
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- js files -->
+    <script src="js/mainScript.js"></script>
+    <script src="js/externalScript.js"></script>
+    <script src="js/nextStepBtn.js"></script>
+    
+  </body>
+</html>
