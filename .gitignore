@@ -15,4 +15,5 @@
 .DS_Store
 .prettierignore
 .vscode
-.node_modules
+# Node.js
+node_modules/
