@@ -716,13 +716,13 @@ button:hover {
     height: 10rem;
     display: flex;
     flex-direction: column;
-    padding-top: 1rem;
+    padding-top: 1.17rem;
     align-items: flex-start;
   }
   .image-container-advanced > img,
   .image-container-arcade > img,
   .image-container-pro > img {
-    margin-bottom: 2.2rem;
+    margin-bottom: 2rem;
   }
   #add-ons-container > .header-with-para {
     margin-bottom: 1.8rem;
