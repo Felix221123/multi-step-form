@@ -158,7 +158,10 @@ I learnt the css framework tailwind css and the javascript framework jquery and 
 
 ### Continued development
 i will continue to use jquery and tailwind css in my next projects
-
+To create an package json for your application, use the cmd
+```shell
+npm init -y
+```
 
 
 ### Useful resources
